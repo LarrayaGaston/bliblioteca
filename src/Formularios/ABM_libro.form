@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -82,17 +85,10 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbo_registro">
+            <Component class="javax.swing.JComboBox" name="cbo_Tipo_registro">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="Material Impreso"/>
-                    <StringItem index="1" value="Material Cartogr&#xe1;fico"/>
-                    <StringItem index="2" value="Material Proyectable"/>
-                    <StringItem index="3" value="Registros Musicales"/>
-                    <StringItem index="4" value="Archivos De Computadora"/>
-                    <StringItem index="5" value="Material Tridmensionales"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
@@ -118,11 +114,7 @@
             <Component class="javax.swing.JComboBox" name="cbo_nivel_bibliografico">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Tomos &#xda;nicos"/>
-                    <StringItem index="1" value="Colecci&#xf3;n"/>
-                    <StringItem index="2" value="Serie"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -147,10 +139,7 @@
             <Component class="javax.swing.JComboBox" name="cbo_nivel_institucional">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="2">
-                    <StringItem index="0" value="Secundario"/>
-                    <StringItem index="1" value="Terciario"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -292,9 +281,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="Btn_Paso1_Siguinte">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes_botones/002-right-arrow.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente Paso"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="1"/>
@@ -307,9 +293,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="Btn_Paso1_atras">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes_botones/003-left-arrow.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Atras"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Hand Cursor"/>
@@ -428,9 +411,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="bto_sig_autor">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes_botones/002-right-arrow.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente Autor"/>
               </Properties>
               <Constraints>
@@ -659,9 +639,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="Btn_Paso2_Siguinte">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes_botones/002-right-arrow.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Siguiente Paso"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="1"/>
@@ -859,11 +836,7 @@
             <Component class="javax.swing.JComboBox" name="cbo_estado_libro">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="3">
-                    <StringItem index="0" value="Bueno"/>
-                    <StringItem index="1" value="Regular"/>
-                    <StringItem index="2" value="Malo"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -925,9 +898,6 @@
             </Container>
             <Component class="javax.swing.JButton" name="Btn_Paso3_editar">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes_botones/001-redo.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Editar"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="1"/>
@@ -940,9 +910,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="Btn_Paso3_Guardar">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/imagenes_botones/001-success.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Guardar"/>
                 <Property name="horizontalTextPosition" type="int" value="0"/>
                 <Property name="verticalTextPosition" type="int" value="1"/>

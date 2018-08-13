@@ -5,6 +5,14 @@
  */
 package Formularios;
 
+import Clases.estado_libro;
+import Clases.nivel_bibliografico;
+import Clases.nivel_institucional;
+import Clases.tipo_registro;
+import Metodos.Cargar;
+import javax.swing.DefaultComboBoxModel;
+import metodos_adicionales.Leer;
+
 /**
  *
  * @author Gaston
@@ -32,7 +40,7 @@ public class ABM_libro extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        cbo_registro = new javax.swing.JComboBox<>();
+        cbo_Tipo_registro = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         cbo_nivel_bibliografico = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
@@ -114,6 +122,11 @@ public class ABM_libro extends javax.swing.JDialog {
         jLabel41 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, null, new java.awt.Color(255, 204, 153), null, null));
 
@@ -126,20 +139,17 @@ public class ABM_libro extends javax.swing.JDialog {
         jLabel2.setText("Tipo de Registro:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        cbo_registro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Material Impreso", "Material Cartográfico", "Material Proyectable", "Registros Musicales", "Archivos De Computadora", "Material Tridmensionales" }));
-        cbo_registro.setToolTipText("");
-        jPanel1.add(cbo_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
+        cbo_Tipo_registro.setToolTipText("");
+        jPanel1.add(cbo_Tipo_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
 
         jLabel3.setText("Nivel Bibliografico:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
-        cbo_nivel_bibliografico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tomos Únicos", "Colección", "Serie" }));
         jPanel1.add(cbo_nivel_bibliografico, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 130, -1));
 
         jLabel4.setText("Nivel Institucional:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
-        cbo_nivel_institucional.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Secundario", "Terciario" }));
         jPanel1.add(cbo_nivel_institucional, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 130, -1));
 
         jLabel5.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
@@ -174,13 +184,11 @@ public class ABM_libro extends javax.swing.JDialog {
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
         jPanel1.add(txt_cod_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 210, -1));
 
-        Btn_Paso1_Siguinte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/002-right-arrow.png"))); // NOI18N
         Btn_Paso1_Siguinte.setText("Siguiente Paso");
         Btn_Paso1_Siguinte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso1_Siguinte.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jPanel1.add(Btn_Paso1_Siguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, 110, 60));
 
-        Btn_Paso1_atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/003-left-arrow.png"))); // NOI18N
         Btn_Paso1_atras.setText("Atras");
         Btn_Paso1_atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Btn_Paso1_atras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -221,7 +229,6 @@ public class ABM_libro extends javax.swing.JDialog {
         Check_noSe_donacion.setText("No se sabe");
         jPanel2.add(Check_noSe_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
 
-        bto_sig_autor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/002-right-arrow.png"))); // NOI18N
         bto_sig_autor.setText("Siguiente Autor");
         jPanel2.add(bto_sig_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, 40));
         jPanel2.add(txt_sig_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 30, -1));
@@ -276,7 +283,6 @@ public class ABM_libro extends javax.swing.JDialog {
         jLabel29.setText("Año de Publicación:");
         jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, -1));
 
-        Btn_Paso2_Siguinte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/002-right-arrow.png"))); // NOI18N
         Btn_Paso2_Siguinte.setText("Siguiente Paso");
         Btn_Paso2_Siguinte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso2_Siguinte.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -332,7 +338,6 @@ public class ABM_libro extends javax.swing.JDialog {
         jLabel37.setText("Nesecidad de Intervención:");
         jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
 
-        cbo_estado_libro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bueno", "Regular", "Malo" }));
         jPanel3.add(cbo_estado_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 150, -1));
 
         cbo_necesidad_intervencion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
@@ -347,13 +352,11 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 210, 60));
 
-        Btn_Paso3_editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/001-redo.png"))); // NOI18N
         Btn_Paso3_editar.setText("Editar");
         Btn_Paso3_editar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso3_editar.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jPanel3.add(Btn_Paso3_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 110, 60));
 
-        Btn_Paso3_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/001-success.png"))); // NOI18N
         Btn_Paso3_Guardar.setText("Guardar");
         Btn_Paso3_Guardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso3_Guardar.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
@@ -381,6 +384,42 @@ public class ABM_libro extends javax.swing.JDialog {
     private void Btn_Paso1_atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Paso1_atrasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Btn_Paso1_atrasActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+
+        // TODO add your handling code here:
+        DefaultComboBoxModel miDefaultCombo1 = new DefaultComboBoxModel();
+        DefaultComboBoxModel miDefaultCombo2 = new DefaultComboBoxModel();
+        DefaultComboBoxModel miDefaultCombo3 = new DefaultComboBoxModel();
+        DefaultComboBoxModel miDefaultCombo4 = new DefaultComboBoxModel();
+        Cargar miCargar = new Cargar();
+        Leer miLeer = new Leer();
+       
+        estado_libro []  miEstadoL = miLeer.leer_estado_libro();
+        nivel_bibliografico []  miNivelB = miLeer.leer_nivel_bibliografico();
+        nivel_institucional [] miNivelInst = miLeer.leer_nivel_institucional();
+        tipo_registro[] miTipoRegistro = miLeer.leer_tipo_registro();
+        
+        
+                
+        
+        
+        miDefaultCombo1 = miCargar.cargar_combo_estadoLibro(miDefaultCombo1, miEstadoL);
+        miDefaultCombo2 = miCargar.cargar_combo_NInstitucional(miDefaultCombo2, miNivelInst);
+        miDefaultCombo3 = miCargar.cargar_combo_NBibliografico(miDefaultCombo3, miNivelB);
+        miDefaultCombo4 = miCargar.cargar_combo_tipoRegistro(miDefaultCombo4, miTipoRegistro);
+        
+       
+        cbo_estado_libro.setModel(miDefaultCombo1);
+        cbo_nivel_institucional.setModel(miDefaultCombo2);
+         cbo_nivel_bibliografico.setModel(miDefaultCombo3);
+        cbo_Tipo_registro.setModel(miDefaultCombo4);
+       
+        cbo_estado_libro.setSelectedIndex(-1);  
+        cbo_nivel_bibliografico.setSelectedIndex(-1);  
+        cbo_nivel_institucional.setSelectedIndex(-1);  
+        cbo_Tipo_registro.setSelectedIndex(-1); 
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -437,12 +476,12 @@ public class ABM_libro extends javax.swing.JDialog {
     private javax.swing.JCheckBox Check_si_compra;
     private javax.swing.JCheckBox Check_si_donacion;
     private javax.swing.JButton bto_sig_autor;
+    private javax.swing.JComboBox<String> cbo_Tipo_registro;
     private javax.swing.JComboBox<String> cbo_cant_autor;
     private javax.swing.JComboBox<String> cbo_estado_libro;
     private javax.swing.JComboBox<String> cbo_necesidad_intervencion;
     private javax.swing.JComboBox<String> cbo_nivel_bibliografico;
     private javax.swing.JComboBox<String> cbo_nivel_institucional;
-    private javax.swing.JComboBox<String> cbo_registro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
