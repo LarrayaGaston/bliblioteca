@@ -50,6 +50,11 @@ public class Menu_de_Inicio extends javax.swing.JFrame {
                 jButton3MouseExited(evt);
             }
         });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3);
         jButton3.setBounds(-120, 140, 200, 60);
 
@@ -73,7 +78,7 @@ public class Menu_de_Inicio extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/Placa-Biblioteca_opt.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-180, 0, 990, 460);
+        jLabel1.setBounds(0, 0, 990, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -91,6 +96,14 @@ public class Menu_de_Inicio extends javax.swing.JFrame {
            
         
     }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+ABM_libro milibro = new ABM_libro(this, false);
+milibro.setVisible(true);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
