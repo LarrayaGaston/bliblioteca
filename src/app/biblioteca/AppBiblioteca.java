@@ -5,6 +5,8 @@
  */
 package app.biblioteca;
 
+import Formularios.login;
+
 /**
  *
  * @author Gaston
@@ -16,6 +18,10 @@ public class AppBiblioteca {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        login miLogin = new login();
+        miLogin.setVisible(true);
+        
+        
     }
     
 }
