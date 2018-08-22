@@ -44,14 +44,14 @@ public class Guardar {
             miConectar.psPrepararSentencias.setInt(9, miLibro.getIntcodigodeubicacion());
            
             miConectar.psPrepararSentencias.setInt(10, miLibro.getProcedencia());
-            miConectar.psPrepararSentencias.setDate(11, miLibro.getAniopublicacion());
+            miConectar.psPrepararSentencias.setInt(11, miLibro.getAniopublicacion());
             miConectar.psPrepararSentencias.setString(12, miLibro.getEdicion());
             miConectar.psPrepararSentencias.setInt(13, miLibro.getLugar());
             miConectar.psPrepararSentencias.setString(14, miLibro.getTitulo());
             miConectar.psPrepararSentencias.setString(15, miLibro.getSubtitulo());
             
             miConectar.psPrepararSentencias.setInt(16, miLibro.getTerminosdescriptivos());
-            miConectar.psPrepararSentencias.setInt(17, miLibro.getNecesidadinterferencia());
+            miConectar.psPrepararSentencias.setString(17, miLibro.getNecesidadinterferencia());
             miConectar.psPrepararSentencias.setInt(18, miLibro.getIdanio());
             miConectar.psPrepararSentencias.setString(19, miLibro.getResumen());
            

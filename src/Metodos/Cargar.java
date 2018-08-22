@@ -7,6 +7,7 @@ package Metodos;
 
 
 import Clases.estado_libro;
+import Clases.necesidad_Intervencion;
 import Clases.nivel_bibliografico;
 import Clases.nivel_institucional;
 import Clases.tipo_registro;
@@ -78,6 +79,22 @@ public class Cargar {
                
                 miJItem.setItemData(miTipoRegistro[i].getIdTiporegistro());
                 miJItem.setItem(miTipoRegistro[i].getNombretiporegistro());
+                
+                MiObjCombo.addElement(miJItem);
+                
+              
+            }
+         
+         return MiObjCombo;
+    }
+        public DefaultComboBoxModel cargar_combo_necesidadInterv (DefaultComboBoxModel MiObjCombo, necesidad_Intervencion [] miNecesidad){
+        
+         for(int i=0; i<miNecesidad.length; i++)
+            {
+                JItem miJItem = new JItem();
+               
+                miJItem.setItemData(miNecesidad[i].getIdNecesidadInt());
+                miJItem.setItem(miNecesidad[i].getNecesidadinterferencia());
                 
                 MiObjCombo.addElement(miJItem);
                 

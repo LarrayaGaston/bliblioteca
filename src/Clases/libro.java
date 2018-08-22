@@ -23,10 +23,10 @@ public class libro {
     private int procedencia;
     private int lugar;
     private int terminosdescriptivos;
-    private int necesidadinterferencia;
+    private String necesidadinterferencia;
     private int idanio;
     private int idestadoconservacion;
-    private Date aniopublicacion;
+    private int aniopublicacion;
     private String nrodeinventarioanterior;
     private String isbn;
     private String issn;
@@ -96,11 +96,11 @@ public class libro {
         this.terminosdescriptivos = terminosdescriptivos;
     }
 
-    public int getNecesidadinterferencia() {
+    public String getNecesidadinterferencia() {
         return necesidadinterferencia;
     }
 
-    public void setNecesidadinterferencia(int necesidadinterferencia) {
+    public void setNecesidadinterferencia(String necesidadinterferencia) {
         this.necesidadinterferencia = necesidadinterferencia;
     }
 
@@ -120,13 +120,7 @@ public class libro {
         this.idestadoconservacion = idestadoconservacion;
     }
 
-    public Date getAniopublicacion() {
-        return aniopublicacion;
-    }
-
-    public void setAniopublicacion(Date aniopublicacion) {
-        this.aniopublicacion = aniopublicacion;
-    }
+   
 
     public String getNrodeinventarioanterior() {
         return nrodeinventarioanterior;
@@ -206,6 +200,14 @@ public class libro {
 
     public void setIdLibros(int idLibros) {
         this.idLibros = idLibros;
+    }
+
+    public int getAniopublicacion() {
+        return aniopublicacion;
+    }
+
+    public void setAniopublicacion(int aniopublicacion) {
+        this.aniopublicacion = aniopublicacion;
     }
     
     

@@ -6,6 +6,7 @@
 package metodos_adicionales;
 
 import Clases.estado_libro;
+import Clases.necesidad_Intervencion;
 import Clases.nivel_bibliografico;
 import Clases.nivel_institucional;
 import Clases.tipo_registro;
@@ -151,6 +152,41 @@ public class Leer {
               rs.close();
               
               return miTipoRegistro;
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error: "+e);
+            return null;
+        }
+    }
+       
+       public  necesidad_Intervencion [] leer_necesidad_de_intervencion(){
+        
+          try{
+              Conectar miConec = new Conectar();   // Instancia el conector
+              
+              String consultaSQL = "Select * From necesidadintervencion";   // escribo la consulta SQL
+              
+              ResultSet rs = miConec.consulta(consultaSQL);      // rs crea un Resulset de datos (creamos un contenedor de datos)
+              
+              rs.last(); // se va al ultimo registro
+              
+          necesidad_Intervencion miNecesidad [] = new necesidad_Intervencion[rs.getRow()];   // trae la fila en la q esta parado el puntero
+              
+              rs.beforeFirst(); // se vuelve arriba 
+              while(rs.next()){
+                  
+               miNecesidad[rs.getRow()-1]= new necesidad_Intervencion();
+                  
+             miNecesidad[rs.getRow()-1].setIdNecesidadInt(rs.getInt("idNecesidadInt"));
+                miNecesidad[rs.getRow()-1].setNecesidadinterferencia(rs.getString("necesidadinterferencia"));
+                  
+              
+              }
+             
+              
+              rs.close();
+              
+              return miNecesidad;
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, "Error: "+e);

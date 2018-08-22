@@ -7,6 +7,7 @@ package Formularios;
 
 import Clases.estado_libro;
 import Clases.libro;
+import Clases.necesidad_Intervencion;
 import Clases.nivel_bibliografico;
 import Clases.nivel_institucional;
 import Clases.tipo_registro;
@@ -28,7 +29,7 @@ public class ABM_libro extends javax.swing.JDialog {
      * Creates new form ABM_libro1
      */
     public ABM_libro(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+        
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -403,6 +404,7 @@ public class ABM_libro extends javax.swing.JDialog {
         DefaultComboBoxModel miDefaultCombo2 = new DefaultComboBoxModel();
         DefaultComboBoxModel miDefaultCombo3 = new DefaultComboBoxModel();
         DefaultComboBoxModel miDefaultCombo4 = new DefaultComboBoxModel();
+        DefaultComboBoxModel miDefaultCombo5 = new DefaultComboBoxModel();
         Cargar miCargar = new Cargar();
         Leer miLeer = new Leer();
        
@@ -410,22 +412,25 @@ public class ABM_libro extends javax.swing.JDialog {
         nivel_bibliografico []  miNivelB = miLeer.leer_nivel_bibliografico();
         nivel_institucional [] miNivelInst = miLeer.leer_nivel_institucional();
         tipo_registro[] miTipoRegistro = miLeer.leer_tipo_registro();
+        necesidad_Intervencion[] miNecesiadad = miLeer.leer_necesidad_de_intervencion();
         
         miDefaultCombo1 = miCargar.cargar_combo_estadoLibro(miDefaultCombo1, miEstadoL);
         miDefaultCombo2 = miCargar.cargar_combo_NInstitucional(miDefaultCombo2, miNivelInst);
         miDefaultCombo3 = miCargar.cargar_combo_NBibliografico(miDefaultCombo3, miNivelB);
         miDefaultCombo4 = miCargar.cargar_combo_tipoRegistro(miDefaultCombo4, miTipoRegistro);
-        
+        miDefaultCombo5 = miCargar.cargar_combo_necesidadInterv(miDefaultCombo5, miNecesiadad);
        
         cbo_estado_libro.setModel(miDefaultCombo1);
         cbo_nivel_institucional.setModel(miDefaultCombo2);
          cbo_nivel_bibliografico.setModel(miDefaultCombo3);
         cbo_Tipo_registro.setModel(miDefaultCombo4);
+        cbo_necesidad_intervencion.setModel(miDefaultCombo5);
        
         cbo_estado_libro.setSelectedIndex(-1);  
         cbo_nivel_bibliografico.setSelectedIndex(-1);  
         cbo_nivel_institucional.setSelectedIndex(-1);  
         cbo_Tipo_registro.setSelectedIndex(-1); 
+        cbo_necesidad_intervencion.setSelectedIndex(-1); 
     }//GEN-LAST:event_formWindowOpened
 
     private void Btn_Paso3_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Paso3_GuardarActionPerformed
@@ -442,7 +447,7 @@ public class ABM_libro extends javax.swing.JDialog {
                     Object obj = cbo_Tipo_registro.getItemAt(pos);
                     JItem item = new JItem(obj);         
                     
-                     JOptionPane.showMessageDialog(null, (item.getItemData().toString()));
+                   
                      miLibro.setIdtipoderegistro(  (Integer)item.getItemData()  );
              }
              
@@ -460,7 +465,7 @@ public class ABM_libro extends javax.swing.JDialog {
                    miLibro.setIdnivelinstitucional((Integer)item.getItemData());
              }
             
-            
+           
   
            miLibro.setNumerodeinventario(txt_InvActual.getText());
            miLibro.setNrodeinventarioanterior(txt_InvAnterior.getText());
@@ -472,7 +477,8 @@ public class ABM_libro extends javax.swing.JDialog {
     
            miLibro.setIntcodigodeubicacion(Integer.parseInt(txt_cod_ubicacion.getText()));
            miLibro.setEdicion(txt_edicion.getText());
-           miLibro.setAniopublicacion(Date.valueOf(txt_año_publicacion.getText()));
+           miLibro.setAniopublicacion(Integer.parseInt(txt_año_publicacion.getText()));
+         
            miLibro.setLugar(Integer.parseInt(txt_lugar.getText()));
            
            miLibro.setTitulo(txt_titulo.getText());
@@ -485,6 +491,7 @@ public class ABM_libro extends javax.swing.JDialog {
             if (pos3 >=0) {
                   Object obj = cbo_estado_libro.getItemAt(pos3);
                   JItem item = new JItem(obj);         
+                  JOptionPane.showMessageDialog(null,"4: "+(Integer)item.getItemData());
                    miLibro.setIdestadoconservacion((Integer)item.getItemData());
              } 
             
@@ -492,22 +499,24 @@ public class ABM_libro extends javax.swing.JDialog {
             if (pos4 >=0) {
                   Object obj = cbo_necesidad_intervencion.getItemAt(pos4);
                   JItem item = new JItem(obj);         
-                   miLibro.setNecesidadinterferencia((Integer)item.getItemData());
+                  JOptionPane.showMessageDialog(null,"5: "+(Integer)item.getItemData());
+                   miLibro.setNecesidadinterferencia(item.getItemData().toString());
              } 
             
-            miLibro.setIdanio(txta_daño.getTabSize());
-           
+         //  miLibro.setIdanio(txta_daño.getTabSize());
+           JOptionPane.showMessageDialog(null,"4: ");
             miGuardar.GuardarLibro(miLibro);
-             
+          
      
             
               JOptionPane.showMessageDialog(null, "EL LIBRO SE GUARDO CORRECTAMENTE");
          
-              // JOptionPane.showMessageDialog(null, "HUBO UN INCONVENIENTE PARA GUARDAR EL LIBRO");
+           
            
            
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Error: "+e);
+              JOptionPane.showMessageDialog(null, "HUBO UN INCONVENIENTE PARA GUARDAR EL LIBRO");
            
         }
     }//GEN-LAST:event_Btn_Paso3_GuardarActionPerformed
