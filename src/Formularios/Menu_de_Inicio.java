@@ -14,10 +14,10 @@ public class Menu_de_Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Menu_de_Inicio
      */
-   
+    boolean agregarLibro;
     public Menu_de_Inicio() {
         initComponents();
-      
+       agregarLibro = false;
     }
 
     /**
@@ -29,7 +29,7 @@ public class Menu_de_Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton3 = new javax.swing.JButton();
+        bto_agregar_libro = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -38,25 +38,25 @@ public class Menu_de_Inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/book-open-flat_opt (2).png"))); // NOI18N
-        jButton3.setContentAreaFilled(false);
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        bto_agregar_libro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/book-open-flat_opt (2).png"))); // NOI18N
+        bto_agregar_libro.setContentAreaFilled(false);
+        bto_agregar_libro.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        bto_agregar_libro.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        bto_agregar_libro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
+                bto_agregar_libroMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton3MouseExited(evt);
+                bto_agregar_libroMouseExited(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        bto_agregar_libro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                bto_agregar_libroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(-120, 140, 200, 60);
+        getContentPane().add(bto_agregar_libro);
+        bto_agregar_libro.setBounds(-120, 140, 200, 60);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/clipboard-list-flat_opt (1).png"))); // NOI18N
         jButton4.setContentAreaFilled(false);
@@ -83,27 +83,30 @@ public class Menu_de_Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+    private void bto_agregar_libroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bto_agregar_libroMouseEntered
         // TODO add your handling code here:
-       
-           
-        
-    }//GEN-LAST:event_jButton3MouseEntered
+       if(!agregarLibro){
+            Animacion.Animacion.mover_derecha(-210, 0, 7,8, bto_agregar_libro);
+        }
+ 
+    }//GEN-LAST:event_bto_agregar_libroMouseEntered
 
-    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+    private void bto_agregar_libroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bto_agregar_libroMouseExited
         // TODO add your handling code here:
+        if(!agregarLibro){
+            Animacion.Animacion.mover_izquierda(0, -210, 7,8, bto_agregar_libro);
+        }
         
-           
         
-    }//GEN-LAST:event_jButton3MouseExited
+    }//GEN-LAST:event_bto_agregar_libroMouseExited
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void bto_agregar_libroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_agregar_libroActionPerformed
 
-ABM_libro milibro = new ABM_libro(this, false);
-milibro.setVisible(true);
+        ABM_libro milibro = new ABM_libro(this, false);
+        milibro.setVisible(true);
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_bto_agregar_libroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,8 +144,8 @@ milibro.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bto_agregar_libro;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

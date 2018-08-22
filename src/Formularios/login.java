@@ -16,6 +16,7 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**
@@ -69,6 +70,11 @@ public class login extends javax.swing.JFrame {
 
         bto_entrar_al_sist.setFont(new java.awt.Font("Trajan Pro", 0, 11)); // NOI18N
         bto_entrar_al_sist.setText("Entrar");
+        bto_entrar_al_sist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bto_entrar_al_sistActionPerformed(evt);
+            }
+        });
         getContentPane().add(bto_entrar_al_sist, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 90, 44));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abm/9-de-cada-10-internautas-ha-leído-un-libro-o-un-cómic-en-el-último-año.jpg"))); // NOI18N
@@ -76,6 +82,12 @@ public class login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bto_entrar_al_sistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_entrar_al_sistActionPerformed
+            menu_de_inicio_v2 miMenu = new menu_de_inicio_v2();
+            miMenu.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bto_entrar_al_sistActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,11 +6,16 @@
 package Formularios;
 
 import Clases.estado_libro;
+import Clases.libro;
 import Clases.nivel_bibliografico;
 import Clases.nivel_institucional;
 import Clases.tipo_registro;
 import Metodos.Cargar;
+import java.sql.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import metodos_adicionales.Guardar;
+import metodos_adicionales.JItem;
 import metodos_adicionales.Leer;
 
 /**
@@ -25,6 +30,7 @@ public class ABM_libro extends javax.swing.JDialog {
     public ABM_libro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -209,25 +215,25 @@ public class ABM_libro extends javax.swing.JDialog {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Check_si_donacion.setText("Si");
-        jPanel2.add(Check_si_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
+        jPanel2.add(Check_si_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
 
         jLabel9.setText("Donación:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
 
         jLabel10.setText("Compra:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, -1));
 
         Check_si_compra.setText("Si");
-        jPanel2.add(Check_si_compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
+        jPanel2.add(Check_si_compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
 
         Check_no_compra.setText("No");
-        jPanel2.add(Check_no_compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, -1));
+        jPanel2.add(Check_no_compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, -1, -1));
 
         Check_no_donacion.setText("No");
-        jPanel2.add(Check_no_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, -1));
+        jPanel2.add(Check_no_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, -1, -1));
 
         Check_noSe_donacion.setText("No se sabe");
-        jPanel2.add(Check_noSe_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
+        jPanel2.add(Check_noSe_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, -1, -1));
 
         bto_sig_autor.setText("Siguiente Autor");
         jPanel2.add(bto_sig_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, 40));
@@ -235,7 +241,7 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jLabel12.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
         jLabel12.setText("Procedencia");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
 
         jLabel21.setText("Seudónimo:");
         jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
@@ -261,27 +267,27 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jLabel25.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
         jLabel25.setText("Edición");
-        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
+        jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, -1, -1));
 
         jLabel30.setText("Lugar:");
-        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, -1, -1));
-        jPanel2.add(txt_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 210, -1));
-        jPanel2.add(txt_año_publicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 130, -1));
-        jPanel2.add(txt_edicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 210, -1));
-        jPanel2.add(txt_editor, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 210, -1));
-        jPanel2.add(txt_editorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 210, -1));
+        jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
+        jPanel2.add(txt_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 210, -1));
+        jPanel2.add(txt_año_publicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 130, -1));
+        jPanel2.add(txt_edicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 210, -1));
+        jPanel2.add(txt_editor, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 210, -1));
+        jPanel2.add(txt_editorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 210, -1));
 
         jLabel26.setText("Editorial:");
-        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, -1, -1));
+        jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, -1, -1));
 
         jLabel27.setText("Editor:");
-        jPanel2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
+        jPanel2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 210, -1, -1));
 
         jLabel28.setText("Edición;");
-        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, -1, -1));
+        jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, -1));
 
         jLabel29.setText("Año de Publicación:");
-        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, -1));
+        jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, -1, -1));
 
         Btn_Paso2_Siguinte.setText("Siguiente Paso");
         Btn_Paso2_Siguinte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -360,6 +366,11 @@ public class ABM_libro extends javax.swing.JDialog {
         Btn_Paso3_Guardar.setText("Guardar");
         Btn_Paso3_Guardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso3_Guardar.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        Btn_Paso3_Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Paso3_GuardarActionPerformed(evt);
+            }
+        });
         jPanel3.add(Btn_Paso3_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, 110, 60));
 
         jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abm/31602959-castaño-claro-papel-reciclado-textura-limpie-el-fondo.jpg"))); // NOI18N
@@ -400,10 +411,6 @@ public class ABM_libro extends javax.swing.JDialog {
         nivel_institucional [] miNivelInst = miLeer.leer_nivel_institucional();
         tipo_registro[] miTipoRegistro = miLeer.leer_tipo_registro();
         
-        
-                
-        
-        
         miDefaultCombo1 = miCargar.cargar_combo_estadoLibro(miDefaultCombo1, miEstadoL);
         miDefaultCombo2 = miCargar.cargar_combo_NInstitucional(miDefaultCombo2, miNivelInst);
         miDefaultCombo3 = miCargar.cargar_combo_NBibliografico(miDefaultCombo3, miNivelB);
@@ -420,6 +427,90 @@ public class ABM_libro extends javax.swing.JDialog {
         cbo_nivel_institucional.setSelectedIndex(-1);  
         cbo_Tipo_registro.setSelectedIndex(-1); 
     }//GEN-LAST:event_formWindowOpened
+
+    private void Btn_Paso3_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Paso3_GuardarActionPerformed
+
+        try{
+        // TODO add your handling code here:
+         Guardar miGuardar = new Guardar(); 
+         libro miLibro = new libro();
+   
+      //PASO 1 ------     
+         
+         int pos = cbo_Tipo_registro.getSelectedIndex();
+             if (pos >=0) {
+                    Object obj = cbo_Tipo_registro.getItemAt(pos);
+                    JItem item = new JItem(obj);         
+                    
+                     JOptionPane.showMessageDialog(null, (item.getItemData().toString()));
+                     miLibro.setIdtipoderegistro(  (Integer)item.getItemData()  );
+             }
+             
+         int pos1 = cbo_nivel_bibliografico.getSelectedIndex();
+            if (pos1 >=0) {
+                  Object obj = cbo_nivel_bibliografico.getItemAt(pos1);
+                  JItem item = new JItem(obj);         
+                   miLibro.setIdnivelbibliografico((Integer)item.getItemData());
+             }
+         
+          int pos2 = cbo_nivel_institucional.getSelectedIndex();
+            if (pos2>=0) {
+                  Object obj = cbo_nivel_institucional.getItemAt(pos2);
+                  JItem item = new JItem(obj);         
+                   miLibro.setIdnivelinstitucional((Integer)item.getItemData());
+             }
+            
+            
+  
+           miLibro.setNumerodeinventario(txt_InvActual.getText());
+           miLibro.setNrodeinventarioanterior(txt_InvAnterior.getText());
+           miLibro.setIsbn(txt_ISBN.getText());
+           miLibro.setIssn(txt_ISSN.getText());
+           miLibro.setOtrosindicadores(txt_otros_Indicadores.getText());
+         
+    //PASO 2 ------   
+    
+           miLibro.setIntcodigodeubicacion(Integer.parseInt(txt_cod_ubicacion.getText()));
+           miLibro.setEdicion(txt_edicion.getText());
+           miLibro.setAniopublicacion(Date.valueOf(txt_año_publicacion.getText()));
+           miLibro.setLugar(Integer.parseInt(txt_lugar.getText()));
+           
+           miLibro.setTitulo(txt_titulo.getText());
+           miLibro.setSubtitulo(txt_Subtitulo.getText());
+           miLibro.setTerminosdescriptivos(Integer.parseInt(txt_terminos_descrip.getText()));
+    
+    //PASO 3 ------  
+    
+            int pos3 = cbo_estado_libro.getSelectedIndex();
+            if (pos3 >=0) {
+                  Object obj = cbo_estado_libro.getItemAt(pos3);
+                  JItem item = new JItem(obj);         
+                   miLibro.setIdestadoconservacion((Integer)item.getItemData());
+             } 
+            
+            int pos4 = cbo_necesidad_intervencion.getSelectedIndex();
+            if (pos4 >=0) {
+                  Object obj = cbo_necesidad_intervencion.getItemAt(pos4);
+                  JItem item = new JItem(obj);         
+                   miLibro.setNecesidadinterferencia((Integer)item.getItemData());
+             } 
+            
+            miLibro.setIdanio(txta_daño.getTabSize());
+           
+            miGuardar.GuardarLibro(miLibro);
+             
+     
+            
+              JOptionPane.showMessageDialog(null, "EL LIBRO SE GUARDO CORRECTAMENTE");
+         
+              // JOptionPane.showMessageDialog(null, "HUBO UN INCONVENIENTE PARA GUARDAR EL LIBRO");
+           
+           
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error: "+e);
+           
+        }
+    }//GEN-LAST:event_Btn_Paso3_GuardarActionPerformed
 
     /**
      * @param args the command line arguments

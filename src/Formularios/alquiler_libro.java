@@ -101,7 +101,7 @@ public class alquiler_libro extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
-        jLabel9.setText("Datos Personales ");
+        jLabel9.setText("Datos Personales del Alumno ");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 25, -1, -1));
 
         jLabel8.setText("DNI:");
@@ -195,7 +195,7 @@ public class alquiler_libro extends javax.swing.JFrame {
         jPanel2.add(txt_estado_datos_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 230, -1));
 
         jLabel17.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
-        jLabel17.setText("Datos Del Alquiler");
+        jLabel17.setText("Datos Del Alquiler del Libro");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         jPanel2.add(cbo_cant_dias_alquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 120, -1));
