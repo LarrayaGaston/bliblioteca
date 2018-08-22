@@ -5,6 +5,7 @@
  */
 package Formularios;
 
+import metodos_adicionales.validador;
 import Clases.estado_libro;
 import Clases.libro;
 import Clases.nivel_bibliografico;
@@ -167,7 +168,19 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jLabel8.setText("Nº de Inventario Anterior: ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+
+        txt_InvActual.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_InvActualKeyTyped(evt);
+            }
+        });
         jPanel1.add(txt_InvActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 110, -1));
+
+        txt_InvAnterior.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_InvAnteriorKeyTyped(evt);
+            }
+        });
         jPanel1.add(txt_InvAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 110, -1));
 
         jLabel6.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
@@ -179,15 +192,39 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jLabel14.setText("ISSN:");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, -1));
+
+        txt_ISBN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_ISBNKeyTyped(evt);
+            }
+        });
         jPanel1.add(txt_ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 210, -1));
+
+        txt_ISSN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_ISSNKeyTyped(evt);
+            }
+        });
         jPanel1.add(txt_ISSN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 210, -1));
 
         jLabel15.setText("Otros Indicadores: ");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
+
+        txt_otros_Indicadores.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_otros_IndicadoresKeyTyped(evt);
+            }
+        });
         jPanel1.add(txt_otros_Indicadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 210, -1));
 
         jLabel17.setText("Códigos de Ubicación:");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
+
+        txt_cod_ubicacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_cod_ubicacionKeyTyped(evt);
+            }
+        });
         jPanel1.add(txt_cod_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 210, -1));
 
         Btn_Paso1_Siguinte.setText("Siguiente Paso");
@@ -196,7 +233,7 @@ public class ABM_libro extends javax.swing.JDialog {
         jPanel1.add(Btn_Paso1_Siguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, 110, 60));
 
         Btn_Paso1_atras.setText("Atras");
-        Btn_Paso1_atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Btn_Paso1_atras.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Btn_Paso1_atras.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso1_atras.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         Btn_Paso1_atras.addActionListener(new java.awt.event.ActionListener() {
@@ -245,8 +282,26 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jLabel21.setText("Seudónimo:");
         jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
+
+        txt_seud_autor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_seud_autorKeyTyped(evt);
+            }
+        });
         jPanel2.add(txt_seud_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 210, -1));
+
+        txt_apell_autor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_apell_autorKeyTyped(evt);
+            }
+        });
         jPanel2.add(txt_apell_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 210, -1));
+
+        txt_nomb_autor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nomb_autorKeyTyped(evt);
+            }
+        });
         jPanel2.add(txt_nomb_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 210, -1));
 
         cbo_cant_autor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
@@ -271,8 +326,20 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jLabel30.setText("Lugar:");
         jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
+
+        txt_lugar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_lugarKeyTyped(evt);
+            }
+        });
         jPanel2.add(txt_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 210, -1));
         jPanel2.add(txt_año_publicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 130, -1));
+
+        txt_edicion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_edicionKeyTyped(evt);
+            }
+        });
         jPanel2.add(txt_edicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 210, -1));
         jPanel2.add(txt_editor, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 210, -1));
         jPanel2.add(txt_editorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 210, -1));
@@ -511,6 +578,99 @@ public class ABM_libro extends javax.swing.JDialog {
            
         }
     }//GEN-LAST:event_Btn_Paso3_GuardarActionPerformed
+
+    private void txt_InvActualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_InvActualKeyTyped
+        char c;               
+    c=evt.getKeyChar();  
+   
+          if(Character.isDigit(c)==false)  
+            { 
+             getToolkit().beep();  
+             
+            // JOptionPane.showMessageDialog(null, "ERRRROR");  
+             evt.consume();
+          
+            }   
+    }//GEN-LAST:event_txt_InvActualKeyTyped
+
+    private void txt_InvAnteriorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_InvAnteriorKeyTyped
+          char c;               
+    c=evt.getKeyChar();  
+   
+          if(Character.isDigit(c)==false)  
+            { 
+             getToolkit().beep();  
+            
+             evt.consume();
+          
+            }  
+    }//GEN-LAST:event_txt_InvAnteriorKeyTyped
+
+    private void txt_ISBNKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ISBNKeyTyped
+        validador mivalidar = new validador();
+        if (mivalidar.validarletras(evt)){
+         evt.consume();  
+            }
+    }//GEN-LAST:event_txt_ISBNKeyTyped
+
+    private void txt_ISSNKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ISSNKeyTyped
+         validador mivalidar = new validador();
+        if (mivalidar.validarletras(evt)){
+         evt.consume();  
+            }
+    }//GEN-LAST:event_txt_ISSNKeyTyped
+
+    private void txt_otros_IndicadoresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_otros_IndicadoresKeyTyped
+         validador mivalidar = new validador();
+        if (mivalidar.validarletras(evt)){
+         evt.consume();  
+            }
+    }//GEN-LAST:event_txt_otros_IndicadoresKeyTyped
+
+    private void txt_cod_ubicacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cod_ubicacionKeyTyped
+              char c;               
+    c=evt.getKeyChar();  
+          if(Character.isDigit(c)==false)  
+            { 
+             getToolkit().beep();  
+             evt.consume();
+            }  
+    }//GEN-LAST:event_txt_cod_ubicacionKeyTyped
+
+    private void txt_nomb_autorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nomb_autorKeyTyped
+       validador mivalidar = new validador();
+        if (mivalidar.validarletras(evt)){
+         evt.consume();  
+            }
+    }//GEN-LAST:event_txt_nomb_autorKeyTyped
+
+    private void txt_apell_autorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apell_autorKeyTyped
+       validador mivalidar = new validador();
+        if (mivalidar.validarletras(evt)){
+         evt.consume();  
+            }
+    }//GEN-LAST:event_txt_apell_autorKeyTyped
+
+    private void txt_seud_autorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_seud_autorKeyTyped
+       validador mivalidar = new validador();
+        if (mivalidar.validarletras(evt)){
+         evt.consume();  
+            }
+    }//GEN-LAST:event_txt_seud_autorKeyTyped
+
+    private void txt_lugarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_lugarKeyTyped
+       validador mivalidar = new validador();
+        if (mivalidar.validarletras(evt)){
+         evt.consume();  
+            }
+    }//GEN-LAST:event_txt_lugarKeyTyped
+
+    private void txt_edicionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_edicionKeyTyped
+       validador mivalidar = new validador();
+        if (mivalidar.validarletras(evt)){
+         evt.consume();  
+            }
+    }//GEN-LAST:event_txt_edicionKeyTyped
 
     /**
      * @param args the command line arguments
