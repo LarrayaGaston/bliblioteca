@@ -5,6 +5,7 @@
  */
 package metodos_adicionales;
 
+import Clases.Autor;
 import Clases.estado_libro;
 import Clases.necesidad_Intervencion;
 import Clases.nivel_bibliografico;
@@ -192,5 +193,44 @@ public class Leer {
             JOptionPane.showMessageDialog(null, "Error: "+e);
             return null;
         }
+    }
+   
+    public  Autor [] leer_autor(String valordeBusqueda){
+        
+          try{
+              Conectar miConec = new Conectar();   // Instancia el conector
+              
+              String consultaSQL = "Select * From autor where nombre_autor like '%" + valordeBusqueda + "%'";   // escribo la consulta SQL
+              
+              ResultSet rs = miConec.consulta(consultaSQL);      // rs crea un Resulset de datos (creamos un contenedor de datos)
+              
+              rs.last(); // se va al ultimo registro
+              
+         Autor miAutor [] = new Autor[rs.getRow()];   // trae la fila en la q esta parado el puntero
+              
+              rs.beforeFirst(); // se vuelve arriba 
+              while(rs.next()){
+                  
+              miAutor[rs.getRow()-1]= new Autor();
+                  
+             miAutor[rs.getRow()-1].setIdautor(rs.getInt("idautor"));
+             miAutor[rs.getRow()-1].setNombre_autor(rs.getString("nombre_autor"));
+             miAutor[rs.getRow()-1].setApellido_autor(rs.getString("apellido_autor"));      
+             miAutor[rs.getRow()-1].setNacionalidad(rs.getString("nacionalidad"));  
+              }
+             
+              
+              rs.close();
+              
+              return miAutor;
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error: "+e);
+            return null;
+        }
+    }    
+
+    public Autor[] leer_autor() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
