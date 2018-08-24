@@ -9,6 +9,7 @@ import Clases.Autor;
 import Metodos.cargarTabla;
 import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory;
 import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 import metodos_adicionales.Leer;
 
 /**
@@ -20,9 +21,10 @@ public class busquedad_autor extends javax.swing.JDialog {
     /**
      * Creates new form busquedad_autor
      */
-    public busquedad_autor(java.awt.Frame parent, boolean modal) {
+    public busquedad_autor(java.awt.Dialog parent, boolean modal, ListModel modelolista) {
         super(parent, modal);
         initComponents();
+        lista_autor_hijo.setModel(modelolista);
     }
 
     /**
@@ -52,13 +54,13 @@ public class busquedad_autor extends javax.swing.JDialog {
 
         tabla_autor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane2.setViewportView(tabla_autor);
@@ -132,7 +134,7 @@ public class busquedad_autor extends javax.swing.JDialog {
        
        if(txt_busquedad_autor.getText().isEmpty()) // Pregunta si la caja de texto esta vacia
             
-          tabla_autor = miTabla.cargar_tabla_autor(tabla_autor,mileer.leer_autor(), titulos);
+          tabla_autor = miTabla.cargar_tabla_autor(tabla_autor,mileer.leer_autor(txt_busquedad_autor.getText()), titulos);
        
        else{
             
@@ -151,7 +153,7 @@ public class busquedad_autor extends javax.swing.JDialog {
         miAutor.setApellido_autor(tabla_autor.getValueAt(tabla_autor.getSelectedRow(),2).toString());
         miAutor.setNacionalidad(tabla_autor.getValueAt(tabla_autor.getSelectedRow(),3).toString());
         
-       DefaultListModel modelo_lista = new DefaultListModel();
+        DefaultListModel modelo_lista = (DefaultListModel)lista_autor_hijo.getModel();
        
        lista_autor_hijo.setModel(modelo_lista);
        modelo_lista.addElement(miAutor);
@@ -187,7 +189,7 @@ public class busquedad_autor extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                busquedad_autor dialog = new busquedad_autor(new javax.swing.JFrame(), true);
+                busquedad_autor dialog = new busquedad_autor(new javax.swing.JDialog(), true, new DefaultListModel());
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

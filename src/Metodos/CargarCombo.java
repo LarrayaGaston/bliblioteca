@@ -10,6 +10,7 @@ import Clases.estado_libro;
 import Clases.necesidad_Intervencion;
 import Clases.nivel_bibliografico;
 import Clases.nivel_institucional;
+import Clases.procedencia;
 import Clases.tipo_registro;
 import javax.swing.DefaultComboBoxModel;
 import metodos_adicionales.JItem;
@@ -18,7 +19,7 @@ import metodos_adicionales.JItem;
  *
  * @author Gaston
  */
-public class Cargar {
+public class CargarCombo {
     
     public DefaultComboBoxModel cargar_combo_estadoLibro (DefaultComboBoxModel MiObjCombo, estado_libro [] miEstadoL){
         
@@ -95,6 +96,23 @@ public class Cargar {
                
                 miJItem.setItemData(miNecesidad[i].getIdNecesidadInt());
                 miJItem.setItem(miNecesidad[i].getNecesidadinterferencia());
+                
+                MiObjCombo.addElement(miJItem);
+                
+              
+            }
+         
+         return MiObjCombo;
+    }
+   
+     public DefaultComboBoxModel cargar_combo_procencia (DefaultComboBoxModel MiObjCombo, procedencia [] miProcencia){
+        
+         for(int i=0; i<miProcencia.length; i++)
+            {
+                JItem miJItem = new JItem();
+               
+                miJItem.setItemData(miProcencia[i].getIdprocendia());
+                miJItem.setItem(miProcencia[i].getNombre_procencia());
                 
                 MiObjCombo.addElement(miJItem);
                 

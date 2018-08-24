@@ -10,10 +10,13 @@ import Clases.libro;
 import Clases.necesidad_Intervencion;
 import Clases.nivel_bibliografico;
 import Clases.nivel_institucional;
+import Clases.procedencia;
 import Clases.tipo_registro;
-import Metodos.Cargar;
+import Metodos.CargarCombo;
 import java.sql.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import metodos_adicionales.Guardar;
 import metodos_adicionales.JItem;
@@ -32,6 +35,7 @@ public class ABM_libro extends javax.swing.JDialog {
         
         initComponents();
         this.setLocationRelativeTo(null);
+       lista_autor_padre.setModel(new DefaultListModel());
     }
 
     /**
@@ -70,24 +74,10 @@ public class ABM_libro extends javax.swing.JDialog {
         Btn_Paso1_atras = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        Check_si_donacion = new javax.swing.JCheckBox();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        Check_si_compra = new javax.swing.JCheckBox();
-        Check_no_compra = new javax.swing.JCheckBox();
-        Check_no_donacion = new javax.swing.JCheckBox();
-        Check_noSe_donacion = new javax.swing.JCheckBox();
-        bto_sig_autor = new javax.swing.JButton();
-        txt_sig_autor = new javax.swing.JTextField();
+        lista_autor_padre = new javax.swing.JList<>();
+        bto_buscar_autor_padre = new javax.swing.JButton();
+        cbo_procedencia = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        txt_seud_autor = new javax.swing.JTextField();
-        txt_apell_autor = new javax.swing.JTextField();
-        txt_nomb_autor = new javax.swing.JTextField();
-        cbo_cant_autor = new javax.swing.JComboBox<>();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -102,6 +92,7 @@ public class ABM_libro extends javax.swing.JDialog {
         jLabel29 = new javax.swing.JLabel();
         Btn_Paso2_Siguinte = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -215,52 +206,21 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Check_si_donacion.setText("Si");
-        jPanel2.add(Check_si_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
+        jPanel2.add(lista_autor_padre, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 70, 180, 180));
 
-        jLabel9.setText("Donación:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
+        bto_buscar_autor_padre.setText("Buscar Autor");
+        bto_buscar_autor_padre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bto_buscar_autor_padreActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bto_buscar_autor_padre, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 140, 110, 30));
 
-        jLabel10.setText("Compra:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, -1));
-
-        Check_si_compra.setText("Si");
-        jPanel2.add(Check_si_compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
-
-        Check_no_compra.setText("No");
-        jPanel2.add(Check_no_compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, -1, -1));
-
-        Check_no_donacion.setText("No");
-        jPanel2.add(Check_no_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, -1, -1));
-
-        Check_noSe_donacion.setText("No se sabe");
-        jPanel2.add(Check_noSe_donacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, -1, -1));
-
-        bto_sig_autor.setText("Siguiente Autor");
-        jPanel2.add(bto_sig_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, 40));
-        jPanel2.add(txt_sig_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 30, -1));
+        jPanel2.add(cbo_procedencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 190, -1));
 
         jLabel12.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
         jLabel12.setText("Procedencia");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
-
-        jLabel21.setText("Seudónimo:");
-        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
-        jPanel2.add(txt_seud_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 210, -1));
-        jPanel2.add(txt_apell_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 210, -1));
-        jPanel2.add(txt_nomb_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 210, -1));
-
-        cbo_cant_autor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        jPanel2.add(cbo_cant_autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
-
-        jLabel20.setText("Cantidad:");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jLabel18.setText("Nombre:");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-
-        jLabel19.setText("Apellido:");
-        jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
         jLabel11.setText("Autor");
@@ -297,6 +257,7 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abm/31602959-castaño-claro-papel-reciclado-textura-limpie-el-fondo.jpg"))); // NOI18N
         jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 460));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
         jTabbedPane1.addTab("Paso 2", jPanel2);
 
@@ -405,7 +366,9 @@ public class ABM_libro extends javax.swing.JDialog {
         DefaultComboBoxModel miDefaultCombo3 = new DefaultComboBoxModel();
         DefaultComboBoxModel miDefaultCombo4 = new DefaultComboBoxModel();
         DefaultComboBoxModel miDefaultCombo5 = new DefaultComboBoxModel();
-        Cargar miCargar = new Cargar();
+        DefaultComboBoxModel miDefaultCombo6 = new DefaultComboBoxModel();
+        
+        CargarCombo miCargar = new CargarCombo();
         Leer miLeer = new Leer();
        
         estado_libro []  miEstadoL = miLeer.leer_estado_libro();
@@ -413,24 +376,28 @@ public class ABM_libro extends javax.swing.JDialog {
         nivel_institucional [] miNivelInst = miLeer.leer_nivel_institucional();
         tipo_registro[] miTipoRegistro = miLeer.leer_tipo_registro();
         necesidad_Intervencion[] miNecesiadad = miLeer.leer_necesidad_de_intervencion();
+        procedencia [] miProcedencia = miLeer.leer_procencia();
         
         miDefaultCombo1 = miCargar.cargar_combo_estadoLibro(miDefaultCombo1, miEstadoL);
         miDefaultCombo2 = miCargar.cargar_combo_NInstitucional(miDefaultCombo2, miNivelInst);
         miDefaultCombo3 = miCargar.cargar_combo_NBibliografico(miDefaultCombo3, miNivelB);
         miDefaultCombo4 = miCargar.cargar_combo_tipoRegistro(miDefaultCombo4, miTipoRegistro);
         miDefaultCombo5 = miCargar.cargar_combo_necesidadInterv(miDefaultCombo5, miNecesiadad);
-       
+        miDefaultCombo6 = miCargar.cargar_combo_procencia(miDefaultCombo6, miProcedencia);
+        
         cbo_estado_libro.setModel(miDefaultCombo1);
         cbo_nivel_institucional.setModel(miDefaultCombo2);
-         cbo_nivel_bibliografico.setModel(miDefaultCombo3);
+        cbo_nivel_bibliografico.setModel(miDefaultCombo3);
         cbo_Tipo_registro.setModel(miDefaultCombo4);
         cbo_necesidad_intervencion.setModel(miDefaultCombo5);
+        cbo_procedencia.setModel(miDefaultCombo6);
        
         cbo_estado_libro.setSelectedIndex(-1);  
         cbo_nivel_bibliografico.setSelectedIndex(-1);  
         cbo_nivel_institucional.setSelectedIndex(-1);  
         cbo_Tipo_registro.setSelectedIndex(-1); 
         cbo_necesidad_intervencion.setSelectedIndex(-1); 
+        cbo_procedencia.setSelectedIndex(-1); 
     }//GEN-LAST:event_formWindowOpened
 
     private void Btn_Paso3_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Paso3_GuardarActionPerformed
@@ -439,6 +406,7 @@ public class ABM_libro extends javax.swing.JDialog {
         // TODO add your handling code here:
          Guardar miGuardar = new Guardar(); 
          libro miLibro = new libro();
+         
    
       //PASO 1 ------     
          
@@ -481,6 +449,14 @@ public class ABM_libro extends javax.swing.JDialog {
          
            miLibro.setLugar(Integer.parseInt(txt_lugar.getText()));
            
+             int pos5 = cbo_procedencia.getSelectedIndex();
+             if (pos5 >=0) {
+                    Object obj = cbo_Tipo_registro.getItemAt(pos5);
+                    JItem item = new JItem(obj);        
+                    miLibro.setProcedencia((Integer)item.getItemData());
+    
+             }
+           
            miLibro.setTitulo(txt_titulo.getText());
            miLibro.setSubtitulo(txt_Subtitulo.getText());
            miLibro.setTerminosdescriptivos(Integer.parseInt(txt_terminos_descrip.getText()));
@@ -520,6 +496,14 @@ public class ABM_libro extends javax.swing.JDialog {
            
         }
     }//GEN-LAST:event_Btn_Paso3_GuardarActionPerformed
+
+    private void bto_buscar_autor_padreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_buscar_autor_padreActionPerformed
+
+        // TODO add your handling code here:
+        DefaultListModel modeloLista = (DefaultListModel)lista_autor_padre.getModel();
+        busquedad_autor mihijo = new busquedad_autor(new JDialog(), true, modeloLista);
+        mihijo.setVisible(true);
+    }//GEN-LAST:event_bto_buscar_autor_padreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -570,31 +554,21 @@ public class ABM_libro extends javax.swing.JDialog {
     private javax.swing.JButton Btn_Paso2_Siguinte;
     private javax.swing.JButton Btn_Paso3_Guardar;
     private javax.swing.JButton Btn_Paso3_editar;
-    private javax.swing.JCheckBox Check_noSe_donacion;
-    private javax.swing.JCheckBox Check_no_compra;
-    private javax.swing.JCheckBox Check_no_donacion;
-    private javax.swing.JCheckBox Check_si_compra;
-    private javax.swing.JCheckBox Check_si_donacion;
-    private javax.swing.JButton bto_sig_autor;
+    private javax.swing.JButton bto_buscar_autor_padre;
     private javax.swing.JComboBox<String> cbo_Tipo_registro;
-    private javax.swing.JComboBox<String> cbo_cant_autor;
     private javax.swing.JComboBox<String> cbo_estado_libro;
     private javax.swing.JComboBox<String> cbo_necesidad_intervencion;
     private javax.swing.JComboBox<String> cbo_nivel_bibliografico;
     private javax.swing.JComboBox<String> cbo_nivel_institucional;
+    private javax.swing.JComboBox<String> cbo_procedencia;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -621,19 +595,19 @@ public class ABM_libro extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JList<String> lista_autor_padre;
     private javax.swing.JTextField txt_ISBN;
     private javax.swing.JTextField txt_ISSN;
     private javax.swing.JTextField txt_InvActual;
     private javax.swing.JTextField txt_InvAnterior;
     private javax.swing.JTextField txt_Subtitulo;
-    private javax.swing.JTextField txt_apell_autor;
     private javax.swing.JTextField txt_año_publicacion;
     private javax.swing.JTextField txt_cod_ubicacion;
     private javax.swing.JTextField txt_edicion;
@@ -641,10 +615,7 @@ public class ABM_libro extends javax.swing.JDialog {
     private javax.swing.JTextField txt_editorial;
     private javax.swing.JTextField txt_lugar;
     private javax.swing.JTextField txt_materia;
-    private javax.swing.JTextField txt_nomb_autor;
     private javax.swing.JTextField txt_otros_Indicadores;
-    private javax.swing.JTextField txt_seud_autor;
-    private javax.swing.JTextField txt_sig_autor;
     private javax.swing.JTextField txt_terminos_descrip;
     private javax.swing.JTextField txt_titulo;
     private javax.swing.JTextArea txta_daño;

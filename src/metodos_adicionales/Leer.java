@@ -10,6 +10,7 @@ import Clases.estado_libro;
 import Clases.necesidad_Intervencion;
 import Clases.nivel_bibliografico;
 import Clases.nivel_institucional;
+import Clases.procedencia;
 import Clases.tipo_registro;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
@@ -229,8 +230,40 @@ public class Leer {
             return null;
         }
     }    
+    
+    public  procedencia [] leer_procencia(){
+        
+          try{
+              Conectar miConec = new Conectar();   // Instancia el conector
+              
+              String consultaSQL = "Select * From procedencia";   // escribo la consulta SQL
+              
+              ResultSet rs = miConec.consulta(consultaSQL);      // rs crea un Resulset de datos (creamos un contenedor de datos)
+              
+              rs.last(); // se va al ultimo registro
+              
+          procedencia miProcedencia [] = new procedencia[rs.getRow()];   // trae la fila en la q esta parado el puntero
+              
+              rs.beforeFirst(); // se vuelve arriba 
+              while(rs.next()){
+                  
+              miProcedencia[rs.getRow()-1]= new procedencia();
+                  
+             miProcedencia[rs.getRow()-1].setIdprocendia(rs.getInt("idprocedencia"));
+             miProcedencia[rs.getRow()-1].setNombre_procencia(rs.getString("nombre_procedencia"));
+            
+              }
+             
+              
+              rs.close();
+              
+              return miProcedencia;
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error: "+e);
+            return null;
+        }
+    } 
 
-    public Autor[] leer_autor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }
