@@ -5,6 +5,7 @@
  */
 package Formularios;
 
+import metodos_adicionales.validador;
 import Clases.estado_libro;
 import Clases.libro;
 import Clases.necesidad_Intervencion;
@@ -21,6 +22,7 @@ import javax.swing.JOptionPane;
 import metodos_adicionales.Guardar;
 import metodos_adicionales.JItem;
 import metodos_adicionales.Leer;
+import metodos_adicionales.validarCampos;
 
 /**
  *
@@ -37,7 +39,7 @@ public class ABM_libro extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
        lista_autor_padre.setModel(new DefaultListModel());
     }
-
+        validarCampos miValidar = new validarCampos();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,13 +76,13 @@ public class ABM_libro extends javax.swing.JDialog {
         Btn_Paso1_atras = new javax.swing.JButton();
         jLabel39 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lista_autor_padre = new javax.swing.JList<>();
-        bto_buscar_autor_padre = new javax.swing.JButton();
-        cbo_procedencia = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lista_autor_padre = new javax.swing.JList<>();
+        cbo_procedencia = new javax.swing.JComboBox<>();
         txt_lugar = new javax.swing.JTextField();
         txt_año_publicacion = new javax.swing.JTextField();
         txt_edicion = new javax.swing.JTextField();
@@ -92,7 +94,6 @@ public class ABM_libro extends javax.swing.JDialog {
         jLabel29 = new javax.swing.JLabel();
         Btn_Paso2_Siguinte = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -130,62 +131,107 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel1.setText("Campo De Control");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Tipo de Registro:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         cbo_Tipo_registro.setToolTipText("");
         jPanel1.add(cbo_Tipo_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nivel Bibliografico:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jPanel1.add(cbo_nivel_bibliografico, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 130, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nivel Institucional:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
 
         jPanel1.add(cbo_nivel_institucional, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 130, -1));
 
-        jLabel5.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel5.setText("Cabecera");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Nº de Inventario Actual: ");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Nº de Inventario Anterior: ");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-        jPanel1.add(txt_InvActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 110, -1));
-        jPanel1.add(txt_InvAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 110, -1));
 
-        jLabel6.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        txt_InvActual.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_InvActualKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txt_InvActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 110, -1));
+
+        txt_InvAnterior.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_InvAnteriorKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txt_InvAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 110, -1));
+
+        jLabel6.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel6.setText("Códigos");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
 
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("ISBN:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, -1));
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("ISSN:");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, -1));
-        jPanel1.add(txt_ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 210, -1));
-        jPanel1.add(txt_ISSN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 210, -1));
 
+        txt_ISBN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_ISBNKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txt_ISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 210, -1));
+
+        txt_ISSN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_ISSNKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txt_ISSN, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 210, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("Otros Indicadores: ");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
-        jPanel1.add(txt_otros_Indicadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 210, -1));
 
+        txt_otros_Indicadores.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_otros_IndicadoresKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txt_otros_Indicadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, 210, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel17.setText("Códigos de Ubicación:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
-        jPanel1.add(txt_cod_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 210, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, -1, -1));
+
+        txt_cod_ubicacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_cod_ubicacionKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txt_cod_ubicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 210, -1));
 
         Btn_Paso1_Siguinte.setText("Siguiente Paso");
         Btn_Paso1_Siguinte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso1_Siguinte.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel1.add(Btn_Paso1_Siguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, 110, 60));
+        jPanel1.add(Btn_Paso1_Siguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 110, 60));
 
         Btn_Paso1_atras.setText("Atras");
         Btn_Paso1_atras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -196,33 +242,23 @@ public class ABM_libro extends javax.swing.JDialog {
                 Btn_Paso1_atrasActionPerformed(evt);
             }
         });
-        jPanel1.add(Btn_Paso1_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 110, 60));
+        jPanel1.add(Btn_Paso1_atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 390, 110, 60));
         Btn_Paso1_atras.getAccessibleContext().setAccessibleDescription("");
 
-        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abm/31602959-castaño-claro-papel-reciclado-textura-limpie-el-fondo.jpg"))); // NOI18N
-        jPanel1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 460));
+        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel39.setForeground(java.awt.Color.white);
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Los-10-mejores-libros-en-su-género.jpg"))); // NOI18N
+        jPanel1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -170, 1560, 720));
 
         jTabbedPane1.addTab("Paso 1", jPanel1);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.add(lista_autor_padre, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 70, 180, 180));
-
-        bto_buscar_autor_padre.setText("Buscar Autor");
-        bto_buscar_autor_padre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bto_buscar_autor_padreActionPerformed(evt);
-            }
-        });
-        jPanel2.add(bto_buscar_autor_padre, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 140, 110, 30));
-
-        jPanel2.add(cbo_procedencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 190, -1));
-
-        jLabel12.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel12.setText("Procedencia");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel11.setText("Autor");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
@@ -232,8 +268,26 @@ public class ABM_libro extends javax.swing.JDialog {
 
         jLabel30.setText("Lugar:");
         jPanel2.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
+
+        jScrollPane3.setViewportView(lista_autor_padre);
+
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 270, 200));
+
+        jPanel2.add(cbo_procedencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 170, -1));
+
+        txt_lugar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_lugarKeyPressed(evt);
+            }
+        });
         jPanel2.add(txt_lugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 300, 210, -1));
         jPanel2.add(txt_año_publicacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, 130, -1));
+
+        txt_edicion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_edicionKeyPressed(evt);
+            }
+        });
         jPanel2.add(txt_edicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 240, 210, -1));
         jPanel2.add(txt_editor, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 210, -1));
         jPanel2.add(txt_editorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, 210, -1));
@@ -253,22 +307,24 @@ public class ABM_libro extends javax.swing.JDialog {
         Btn_Paso2_Siguinte.setText("Siguiente Paso");
         Btn_Paso2_Siguinte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso2_Siguinte.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel2.add(Btn_Paso2_Siguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 110, 60));
+        jPanel2.add(Btn_Paso2_Siguinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 110, 60));
 
-        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abm/31602959-castaño-claro-papel-reciclado-textura-limpie-el-fondo.jpg"))); // NOI18N
-        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 460));
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+        jLabel40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Los-10-mejores-libros-en-su-género.jpg"))); // NOI18N
+        jPanel2.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 490));
 
         jTabbedPane1.addTab("Paso 2", jPanel2);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel32.setText("Terminos Descriptivos:");
         jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
+        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel33.setText("Materia:");
         jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel34.setText("Resumen:");
         jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
@@ -276,43 +332,48 @@ public class ABM_libro extends javax.swing.JDialog {
         txta_resumen.setRows(5);
         jScrollPane1.setViewportView(txta_resumen);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 210, 60));
-        jPanel3.add(txt_materia, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 210, -1));
-        jPanel3.add(txt_terminos_descrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 210, -1));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 210, 60));
+        jPanel3.add(txt_materia, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 210, -1));
+        jPanel3.add(txt_terminos_descrip, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, -1));
 
-        jLabel31.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel31.setText("Descripción");
         jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
-        jPanel3.add(txt_Subtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 210, -1));
-        jPanel3.add(txt_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 210, -1));
+        jPanel3.add(txt_Subtitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 210, -1));
+        jPanel3.add(txt_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 210, -1));
 
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel23.setText("Título:");
-        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel24.setText("Subtítulo:");
-        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel22.setText("Título");
         jPanel3.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        jLabel35.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        jLabel35.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel35.setText("Conservación");
-        jPanel3.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+        jPanel3.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
 
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel36.setText("Estado");
-        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+        jPanel3.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
 
+        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel37.setText("Nesecidad de Intervención:");
-        jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
+        jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, -1, -1));
 
-        jPanel3.add(cbo_estado_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 150, -1));
+        jPanel3.add(cbo_estado_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 150, -1));
 
         cbo_necesidad_intervencion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
-        jPanel3.add(cbo_necesidad_intervencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 90, -1, -1));
+        jPanel3.add(cbo_necesidad_intervencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, -1, -1));
 
+        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel38.setText("Daño:");
-        jPanel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
+        jPanel3.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
 
         txta_daño.setColumns(20);
         txta_daño.setRows(5);
@@ -323,7 +384,7 @@ public class ABM_libro extends javax.swing.JDialog {
         Btn_Paso3_editar.setText("Editar");
         Btn_Paso3_editar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Btn_Paso3_editar.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel3.add(Btn_Paso3_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 110, 60));
+        jPanel3.add(Btn_Paso3_editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 400, 110, 60));
 
         Btn_Paso3_Guardar.setText("Guardar");
         Btn_Paso3_Guardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -333,10 +394,10 @@ public class ABM_libro extends javax.swing.JDialog {
                 Btn_Paso3_GuardarActionPerformed(evt);
             }
         });
-        jPanel3.add(Btn_Paso3_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, 110, 60));
+        jPanel3.add(Btn_Paso3_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 400, 110, 60));
 
-        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abm/31602959-castaño-claro-papel-reciclado-textura-limpie-el-fondo.jpg"))); // NOI18N
-        jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 460));
+        jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Los-10-mejores-libros-en-su-género.jpg"))); // NOI18N
+        jPanel3.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 900, 490));
 
         jTabbedPane1.addTab("Paso 3", jPanel3);
 
@@ -348,7 +409,7 @@ public class ABM_libro extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -505,6 +566,59 @@ public class ABM_libro extends javax.swing.JDialog {
         mihijo.setVisible(true);
     }//GEN-LAST:event_bto_buscar_autor_padreActionPerformed
 
+    private void txt_apell_autorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apell_autorKeyTyped
+ 
+    }//GEN-LAST:event_txt_apell_autorKeyTyped
+
+    private void txt_seud_autorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_seud_autorKeyTyped
+ 
+    }//GEN-LAST:event_txt_seud_autorKeyTyped
+
+    private void txt_cod_ubicacionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cod_ubicacionKeyPressed
+
+        validarCampos.soloNumeros(txt_cod_ubicacion);
+    }//GEN-LAST:event_txt_cod_ubicacionKeyPressed
+
+    private void txt_InvActualKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_InvActualKeyPressed
+
+         
+        validarCampos.soloLetras(txt_InvActual);
+        validarCampos.soloNumeros(txt_InvActual);
+    }//GEN-LAST:event_txt_InvActualKeyPressed
+
+    private void txt_InvAnteriorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_InvAnteriorKeyPressed
+
+        validarCampos.soloLetras(txt_InvAnterior);
+        validarCampos.soloNumeros(txt_InvAnterior);
+    }//GEN-LAST:event_txt_InvAnteriorKeyPressed
+
+    private void txt_ISBNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ISBNKeyPressed
+
+         validarCampos.soloLetras(txt_ISBN);
+        validarCampos.soloNumeros(txt_ISBN);
+    }//GEN-LAST:event_txt_ISBNKeyPressed
+
+    private void txt_ISSNKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ISSNKeyPressed
+        validarCampos.soloLetras(txt_ISSN);
+        validarCampos.soloNumeros(txt_ISSN);
+    }//GEN-LAST:event_txt_ISSNKeyPressed
+
+    private void txt_otros_IndicadoresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_otros_IndicadoresKeyPressed
+
+      validarCampos.soloLetras(txt_otros_Indicadores);
+      validarCampos.soloNumeros(txt_otros_Indicadores);
+    }//GEN-LAST:event_txt_otros_IndicadoresKeyPressed
+
+    private void txt_lugarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_lugarKeyPressed
+
+       validarCampos.soloNumeros(txt_lugar);
+    }//GEN-LAST:event_txt_lugarKeyPressed
+
+    private void txt_edicionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_edicionKeyPressed
+
+        validarCampos.soloLetras(txt_edicion);
+    }//GEN-LAST:event_txt_edicionKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -554,7 +668,6 @@ public class ABM_libro extends javax.swing.JDialog {
     private javax.swing.JButton Btn_Paso2_Siguinte;
     private javax.swing.JButton Btn_Paso3_Guardar;
     private javax.swing.JButton Btn_Paso3_editar;
-    private javax.swing.JButton bto_buscar_autor_padre;
     private javax.swing.JComboBox<String> cbo_Tipo_registro;
     private javax.swing.JComboBox<String> cbo_estado_libro;
     private javax.swing.JComboBox<String> cbo_necesidad_intervencion;

@@ -16,6 +16,7 @@ public class alquiler_libro extends javax.swing.JFrame {
      */
     public alquiler_libro() {
         initComponents();
+         this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,61 +28,90 @@ public class alquiler_libro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         txt_turno_datos_personales = new javax.swing.JTextField();
         txxt_fecha_nacimiento_datos_personales = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        bto_guardar_alquiler1 = new javax.swing.JButton();
+        bto_busqueda_libro1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lita_alquiler_libro_padre1 = new javax.swing.JList<>();
         jLabel5 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        bto_editar_alquiler1 = new javax.swing.JButton();
         bto_buscar_alumno = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        txt_nombre_datos_personales = new javax.swing.JTextField();
         txt_dni_datos_personales = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        txt_cant_de_dias_alquiler = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txt_nombre_alumno = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txt_nombre_datos_personales = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txt_apellido_datos_personales = new javax.swing.JTextField();
+        txt_direccion_datos_personales = new javax.swing.JTextField();
         txt_curso_datos_personales = new javax.swing.JTextField();
         txt_carrera_datos_personales = new javax.swing.JTextField();
         bto_atras_datos_personales = new javax.swing.JButton();
-        bto_siguiente_pagina_datos_personales = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        txt_titulo_datos_libro = new javax.swing.JTextField();
-        txt_sub_titulo_datos_libro = new javax.swing.JTextField();
-        txt_editorial_datos_libro = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        txt_titulo_libro = new javax.swing.JTextField();
-        bto_busqueda_libro = new javax.swing.JButton();
-        txt_estado_datos_libro = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        cbo_cant_dias_alquiler = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        txt_fecha_retiro_alquiler = new javax.swing.JTextField();
-        bto_siguiente_libro_datos_libro = new javax.swing.JButton();
-        txt_siguiente_libro_datos_libro = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        cbo_cant_datos_libro = new javax.swing.JComboBox<>();
-        bto_editar_alquiler = new javax.swing.JButton();
-        bto_guardar_alquiler = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(txt_turno_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 230, -1));
-        jPanel1.add(txxt_fecha_nacimiento_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 230, -1));
+        jPanel1.add(txt_turno_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 230, -1));
+        jPanel1.add(txxt_fecha_nacimiento_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 230, -1));
 
+        jLabel10.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
+        jLabel10.setText("Datos Del Libro ");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
+        jLabel19.setText("Datos Del Alquiler del Libro");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("Cantidad de Dias:");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setText("Fecha de Retiro:");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 110, 20));
+
+        bto_guardar_alquiler1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/001-success.png"))); // NOI18N
+        bto_guardar_alquiler1.setText("Guardar");
+        bto_guardar_alquiler1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bto_guardar_alquiler1.setOpaque(false);
+        bto_guardar_alquiler1.setSelected(true);
+        bto_guardar_alquiler1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jPanel1.add(bto_guardar_alquiler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, 110, 60));
+
+        bto_busqueda_libro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/search (1).png"))); // NOI18N
+        bto_busqueda_libro1.setText("Buscar Libro");
+        bto_busqueda_libro1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(bto_busqueda_libro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 190, 30));
+
+        jScrollPane2.setViewportView(lita_alquiler_libro_padre1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 220, 100));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Carrera:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 300, 150, 30));
+
+        bto_editar_alquiler1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/001-redo.png"))); // NOI18N
+        bto_editar_alquiler1.setText("Editar");
+        bto_editar_alquiler1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bto_editar_alquiler1.setOpaque(false);
+        bto_editar_alquiler1.setSelected(true);
+        bto_editar_alquiler1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jPanel1.add(bto_editar_alquiler1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 110, 60));
 
         bto_buscar_alumno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/search (1).png"))); // NOI18N
         bto_buscar_alumno.setText("Buscar Alumno");
@@ -91,184 +121,81 @@ public class alquiler_libro extends javax.swing.JFrame {
                 bto_buscar_alumnoActionPerformed(evt);
             }
         });
-        jPanel1.add(bto_buscar_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 190, 30));
+        jPanel1.add(bto_buscar_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 300, 30));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Turno:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-        jPanel1.add(txt_dni_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 230, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        jPanel1.add(txt_nombre_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 230, -1));
+        jPanel1.add(txt_dni_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 230, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Fecha de Nacimiento:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Trajan Pro", 1, 18)); // NOI18N
         jLabel9.setText("Datos Personales del Alumno ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 25, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("DNI:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        jPanel1.add(txt_cant_de_dias_alquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 150, 30));
 
-        jLabel2.setText("Nombre:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Nombre y Apellido:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
-        txt_nombre_alumno.setForeground(new java.awt.Color(204, 204, 204));
-        txt_nombre_alumno.setText("Nombre del Alumno ");
-        jPanel1.add(txt_nombre_alumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 230, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Email:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 230, -1));
 
-        jLabel3.setText("Apelido:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Direccion:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
-        txt_nombre_datos_personales.setFont(new java.awt.Font("Verdana", 0, 13)); // NOI18N
-        txt_nombre_datos_personales.setCaretColor(new java.awt.Color(51, 51, 255));
-        txt_nombre_datos_personales.setDisabledTextColor(new java.awt.Color(204, 204, 0));
-        txt_nombre_datos_personales.setSelectionColor(new java.awt.Color(51, 255, 255));
-        jPanel1.add(txt_nombre_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 230, -1));
-
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Curso:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-        jPanel1.add(txt_apellido_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 230, -1));
-        jPanel1.add(txt_curso_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 230, -1));
-        jPanel1.add(txt_carrera_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 230, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jPanel1.add(txt_direccion_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 230, -1));
+        jPanel1.add(txt_curso_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 230, -1));
+        jPanel1.add(txt_carrera_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 230, -1));
 
         bto_atras_datos_personales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/003-left-arrow.png"))); // NOI18N
         bto_atras_datos_personales.setText("Atras");
         bto_atras_datos_personales.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bto_atras_datos_personales.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        bto_atras_datos_personales.setOpaque(false);
+        bto_atras_datos_personales.setSelected(true);
         bto_atras_datos_personales.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         bto_atras_datos_personales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bto_atras_datos_personalesActionPerformed(evt);
             }
         });
-        jPanel1.add(bto_atras_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 350, 110, 60));
+        jPanel1.add(bto_atras_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 110, 60));
 
-        bto_siguiente_pagina_datos_personales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/002-right-arrow.png"))); // NOI18N
-        bto_siguiente_pagina_datos_personales.setText("Siguiente Paso");
-        bto_siguiente_pagina_datos_personales.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bto_siguiente_pagina_datos_personales.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel1.add(bto_siguiente_pagina_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 350, 110, 60));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abm/31602959-castaño-claro-papel-reciclado-textura-limpie-el-fondo.jpg"))); // NOI18N
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 460));
-
-        jTabbedPane1.addTab("Paso 1", jPanel1);
-
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(txt_titulo_datos_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 230, -1));
-        jPanel2.add(txt_sub_titulo_datos_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 230, -1));
-
-        txt_editorial_datos_libro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_editorial_datos_libroActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txt_editorial_datos_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 230, -1));
-
-        jLabel14.setText("Titulo:");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
-
-        jLabel15.setText("Subtitulo:");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
-        jLabel1.setText("Datos Del Libro ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        jLabel10.setText("Estado");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
-
-        jLabel16.setText("Editorial:");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
-
-        txt_titulo_libro.setForeground(new java.awt.Color(204, 204, 204));
-        txt_titulo_libro.setText("Titulo del Libro");
-        txt_titulo_libro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_titulo_libroActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txt_titulo_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 230, -1));
-
-        bto_busqueda_libro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/search (1).png"))); // NOI18N
-        bto_busqueda_libro.setText("Buscar Libro");
-        bto_busqueda_libro.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel2.add(bto_busqueda_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 190, 30));
-        jPanel2.add(txt_estado_datos_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 230, -1));
-
-        jLabel17.setFont(new java.awt.Font("Trajan Pro", 1, 14)); // NOI18N
-        jLabel17.setText("Datos Del Alquiler del Libro");
-        jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
-
-        jPanel2.add(cbo_cant_dias_alquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 120, -1));
-
-        jLabel11.setText("Cantidad de Dias");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
-
-        jLabel12.setText("Fecha de Retiro:");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, 10));
-        jPanel2.add(txt_fecha_retiro_alquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 150, -1));
-
-        bto_siguiente_libro_datos_libro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/002-right-arrow.png"))); // NOI18N
-        bto_siguiente_libro_datos_libro.setText("Siguiente Libro");
-        bto_siguiente_libro_datos_libro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bto_siguiente_libro_datos_libroActionPerformed(evt);
-            }
-        });
-        jPanel2.add(bto_siguiente_libro_datos_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, -1, 40));
-        jPanel2.add(txt_siguiente_libro_datos_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 220, 30, -1));
-
-        jLabel20.setText("Cantidad :");
-        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
-
-        cbo_cant_datos_libro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        jPanel2.add(cbo_cant_datos_libro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
-
-        bto_editar_alquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/001-redo.png"))); // NOI18N
-        bto_editar_alquiler.setText("Editar");
-        bto_editar_alquiler.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bto_editar_alquiler.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel2.add(bto_editar_alquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 110, 60));
-
-        bto_guardar_alquiler.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes_botones/001-success.png"))); // NOI18N
-        bto_guardar_alquiler.setText("Guardar");
-        bto_guardar_alquiler.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        bto_guardar_alquiler.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel2.add(bto_guardar_alquiler, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, 110, 60));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abm/31602959-castaño-claro-papel-reciclado-textura-limpie-el-fondo.jpg"))); // NOI18N
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 460));
-
-        jTabbedPane1.addTab("Paso 2", jPanel2);
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Los-10-mejores-libros-en-su-género.jpg"))); // NOI18N
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 920, 550));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_editorial_datos_libroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_editorial_datos_libroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_editorial_datos_libroActionPerformed
-
-    private void txt_titulo_libroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_titulo_libroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_titulo_libroActionPerformed
-
     private void bto_atras_datos_personalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_atras_datos_personalesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bto_atras_datos_personalesActionPerformed
-
-    private void bto_siguiente_libro_datos_libroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_siguiente_libro_datos_libroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bto_siguiente_libro_datos_libroActionPerformed
 
     private void bto_buscar_alumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_buscar_alumnoActionPerformed
         // TODO add your handling code here:
@@ -313,25 +240,17 @@ public class alquiler_libro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bto_atras_datos_personales;
     private javax.swing.JButton bto_buscar_alumno;
-    private javax.swing.JButton bto_busqueda_libro;
-    private javax.swing.JButton bto_editar_alquiler;
-    private javax.swing.JButton bto_guardar_alquiler;
-    private javax.swing.JButton bto_siguiente_libro_datos_libro;
-    private javax.swing.JButton bto_siguiente_pagina_datos_personales;
-    private javax.swing.JComboBox<String> cbo_cant_datos_libro;
-    private javax.swing.JComboBox<String> cbo_cant_dias_alquiler;
+    private javax.swing.JButton bto_busqueda_libro1;
+    private javax.swing.JButton bto_editar_alquiler1;
+    private javax.swing.JButton bto_guardar_alquiler1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -340,21 +259,15 @@ public class alquiler_libro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField txt_apellido_datos_personales;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JList<String> lita_alquiler_libro_padre1;
+    private javax.swing.JTextField txt_cant_de_dias_alquiler;
     private javax.swing.JTextField txt_carrera_datos_personales;
     private javax.swing.JTextField txt_curso_datos_personales;
+    private javax.swing.JTextField txt_direccion_datos_personales;
     private javax.swing.JTextField txt_dni_datos_personales;
-    private javax.swing.JTextField txt_editorial_datos_libro;
-    private javax.swing.JTextField txt_estado_datos_libro;
-    private javax.swing.JTextField txt_fecha_retiro_alquiler;
-    private javax.swing.JTextField txt_nombre_alumno;
     private javax.swing.JTextField txt_nombre_datos_personales;
-    private javax.swing.JTextField txt_siguiente_libro_datos_libro;
-    private javax.swing.JTextField txt_sub_titulo_datos_libro;
-    private javax.swing.JTextField txt_titulo_datos_libro;
-    private javax.swing.JTextField txt_titulo_libro;
     private javax.swing.JTextField txt_turno_datos_personales;
     private javax.swing.JTextField txxt_fecha_nacimiento_datos_personales;
     // End of variables declaration//GEN-END:variables

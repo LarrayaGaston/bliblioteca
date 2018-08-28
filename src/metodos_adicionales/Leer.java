@@ -6,6 +6,7 @@
 package metodos_adicionales;
 
 import Clases.Autor;
+import Clases.alumno;
 import Clases.estado_libro;
 import Clases.necesidad_Intervencion;
 import Clases.nivel_bibliografico;
@@ -258,6 +259,45 @@ public class Leer {
               rs.close();
               
               return miProcedencia;
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Error: "+e);
+            return null;
+        }
+    } 
+    
+     public  alumno [] leer_alumno(String valordeBusqueda){
+        
+          try{
+              Conectar miConec = new Conectar();   // Instancia el conector
+              
+              String consultaSQL = "Select * From alumno where nombre_alumno like '%" + valordeBusqueda + "%'";   // escribo la consulta SQL
+              
+              ResultSet rs = miConec.consulta(consultaSQL);      // rs crea un Resulset de datos (creamos un contenedor de datos)
+              
+              rs.last(); // se va al ultimo registro
+              
+         alumno miAlumno [] = new alumno[rs.getRow()];   // trae la fila en la q esta parado el puntero
+              
+              rs.beforeFirst(); // se vuelve arriba 
+              while(rs.next()){
+                  
+              miAlumno[rs.getRow()-1]= new alumno();
+                  
+             miAlumno[rs.getRow()-1].setIdalumno(rs.getInt("idalumno"));
+             miAlumno[rs.getRow()-1].setNombre_alumno(rs.getString("nombre_alumno"));
+             miAlumno[rs.getRow()-1].setIdcurso(rs.getInt("idcurso"));
+             miAlumno[rs.getRow()-1].setIdturno(rs.getInt("idturno"));
+             miAlumno[rs.getRow()-1].setFechadenacimiento(rs.getDate("fechadenacimiento"));
+             miAlumno[rs.getRow()-1].setDni(rs.getInt("dni"));
+             miAlumno[rs.getRow()-1].setDireccion(rs.getString("direccion"));      
+             miAlumno[rs.getRow()-1].setEmail(rs.getString("email"));  
+              }
+             
+              
+              rs.close();
+              
+              return miAlumno;
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null, "Error: "+e);
