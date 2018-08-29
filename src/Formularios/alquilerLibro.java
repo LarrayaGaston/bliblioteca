@@ -5,18 +5,20 @@
  */
 package Formularios;
 
+import javax.swing.JDialog;
+
 /**
  *
  * @author Gaston
  */
-public class alquiler_libro extends javax.swing.JFrame {
+public class alquilerLibro extends javax.swing.JDialog {
 
     /**
-     * Creates new form alquiler1
+     * Creates new form busquedad_alumno_v1
      */
-    public alquiler_libro() {
+    public alquilerLibro(java.awt.Dialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
-         this.setLocationRelativeTo(null);
     }
 
     /**
@@ -61,7 +63,7 @@ public class alquiler_libro extends javax.swing.JFrame {
         bto_atras_datos_personales = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(txt_turno_datos_personales, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 230, -1));
@@ -193,13 +195,16 @@ public class alquiler_libro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bto_buscar_alumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_buscar_alumnoActionPerformed
+        busquedad_alumno miAlquiler = new busquedad_alumno(new JDialog(), true);
+        miAlquiler.setVisible(true);
+    }//GEN-LAST:event_bto_buscar_alumnoActionPerformed
+
     private void bto_atras_datos_personalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_atras_datos_personalesActionPerformed
         // TODO add your handling code here:
+        menu_de_inicio_v2 miMenu = new menu_de_inicio_v2();
+        miMenu.setVisible(true);
     }//GEN-LAST:event_bto_atras_datos_personalesActionPerformed
-
-    private void bto_buscar_alumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_buscar_alumnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bto_buscar_alumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,21 +223,28 @@ public class alquiler_libro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(alquiler_libro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(alquilerLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(alquiler_libro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(alquilerLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(alquiler_libro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(alquilerLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(alquiler_libro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(alquilerLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new alquiler_libro().setVisible(true);
+                alquilerLibro dialog = new alquilerLibro(new javax.swing.JDialog(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }

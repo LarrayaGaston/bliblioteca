@@ -14,12 +14,12 @@ import metodos_adicionales.Leer;
  *
  * @author Gaston
  */
-public class buquedad_alumno extends javax.swing.JDialog {
+public class busquedad_alumno extends javax.swing.JDialog {
 
     /**
      * Creates new form buquedad_alumno
      */
-    public buquedad_alumno(java.awt.Frame parent, boolean modal) {
+    public busquedad_alumno(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -140,6 +140,13 @@ public class buquedad_alumno extends javax.swing.JDialog {
     private void bto_agregar_alumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_agregar_alumnoActionPerformed
         // TODO add your handling code here:
         alumno miAlumno = new alumno();
+        
+        miAlumno.setIdalumno(Integer.parseInt(tabla_alumno.getValueAt(tabla_alumno.getSelectedRow(),0).toString())); 
+        miAlumno.setNombre_alumno(tabla_alumno.getValueAt(tabla_alumno.getSelectedRow(),1).toString());
+        miAlumno.setDireccion(tabla_alumno.getValueAt(tabla_alumno.getSelectedRow(),2).toString());
+        
+        
+       
 
       
     }//GEN-LAST:event_bto_agregar_alumnoActionPerformed
@@ -165,20 +172,21 @@ public class buquedad_alumno extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(buquedad_alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(busquedad_alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(buquedad_alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(busquedad_alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(buquedad_alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(busquedad_alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(buquedad_alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(busquedad_alumno.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                buquedad_alumno dialog = new buquedad_alumno(new javax.swing.JFrame(), true);
+                busquedad_alumno dialog = new busquedad_alumno(new javax.swing.JDialog(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
